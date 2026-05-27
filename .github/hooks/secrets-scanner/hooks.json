@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "powershell -NoProfile -File tools/hooks/scan-secrets.ps1",
+        "cwd": ".",
+        "env": {
+          "SCAN_MODE": "warn",
+          "SCAN_SCOPE": "diff"
+        },
+        "timeoutSec": 30
+      }
+    ]
+  }
+}

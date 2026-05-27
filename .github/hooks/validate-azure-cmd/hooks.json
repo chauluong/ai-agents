@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolCall": [
+      {
+        "type": "command",
+        "bash": "powershell -NoProfile -File tools/hooks/validate-cmd.ps1",
+        "cwd": ".",
+        "env": {},
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

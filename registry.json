@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "agents": {
+    "claude": [
+      {
+        "name": "azure",
+        "path": ".claude/agents/azure.md",
+        "domain": "azure",
+        "instructions": ["instructions/azure.instructions.md", "instructions/azure-bicep.instructions.md", "instructions/azure-aks.instructions.md"]
+      },
+      {
+        "name": "dotnet",
+        "path": ".claude/agents/dotnet.md",
+        "domain": "dotnet",
+        "instructions": ["instructions/dotnet.instructions.md", "instructions/dotnet-testing.instructions.md"]
+      },
+      {
+        "name": "python",
+        "path": ".claude/agents/python.md",
+        "domain": "python",
+        "instructions": ["instructions/python.instructions.md", "instructions/python-fastapi.instructions.md"]
+      }
+    ],
+    "copilot": [
+      {
+        "name": "Azure IaC Generator",
+        "path": ".github/agents/azure-iac-generator.agent.md",
+        "domain": "azure"
+      },
+      {
+        "name": "Azure DevOps Engineer",
+        "path": ".github/agents/azure-devops.agent.md",
+        "domain": "azure"
+      },
+      {
+        "name": ".NET Architect",
+        "path": ".github/agents/dotnet-architect.agent.md",
+        "domain": "dotnet"
+      },
+      {
+        "name": "Python & FastAPI Developer",
+        "path": ".github/agents/python-fastapi.agent.md",
+        "domain": "python"
+      }
+    ]
+  },
+  "instructions": [
+    { "file": "instructions/azure.instructions.md",         "domain": "azure",  "applyTo": "**/*.bicep,**/*.json,**/azure-*" },
+    { "file": "instructions/azure-bicep.instructions.md",   "domain": "azure",  "applyTo": "**/*.bicep,**/*.bicepparam" },
+    { "file": "instructions/azure-aks.instructions.md",     "domain": "azure",  "applyTo": "**/k8s/**,**/*.yaml,**/*.yml" },
+    { "file": "instructions/dotnet.instructions.md",        "domain": "dotnet", "applyTo": "**/*.cs,**/*.csproj,**/*.sln" },
+    { "file": "instructions/dotnet-testing.instructions.md","domain": "dotnet", "applyTo": "**/*.Tests/**,**/*Tests.cs" },
+    { "file": "instructions/python.instructions.md",        "domain": "python", "applyTo": "**/*.py,**/pyproject.toml" },
+    { "file": "instructions/python-fastapi.instructions.md","domain": "python", "applyTo": "**/routers/**,**/api/**,**/main.py" }
+  ],
+  "skills": [
+    { "name": "code-review",     "path": "skills/code-review/SKILL.md",     "trigger": "review, check, audit, feedback" },
+    { "name": "scaffold",        "path": "skills/scaffold/SKILL.md",         "trigger": "scaffold, bootstrap, generate, create new" },
+    { "name": "security-review", "path": "skills/security-review/SKILL.md",  "trigger": "security, vulnerabilities, audit permissions" }
+  ],
+  "hooks": {
+    "shared_scripts": "tools/hooks/",
+    "claude":  { "config": ".claude/settings.json" },
+    "copilot": {
+      "secrets-scanner":      ".github/hooks/secrets-scanner/hooks.json",
+      "validate-azure-cmd":   ".github/hooks/validate-azure-cmd/hooks.json",
+      "session-logger":       ".github/hooks/session-logger/hooks.json"
+    }
+  },
+  "plugins": [
+    { "name": "azure-cloud-development", "path": "plugins/azure-cloud-development/", "domain": "azure" },
+    { "name": "dotnet-development",      "path": "plugins/dotnet-development/",      "domain": "dotnet" },
+    { "name": "python-development",      "path": "plugins/python-development/",      "domain": "python" }
+  ]
+}

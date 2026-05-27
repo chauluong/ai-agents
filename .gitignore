@@ -1,0 +1,8 @@
+.claude/change-log.jsonl
+.claude/settings.local.json
+logs/
+.venv/
+__pycache__/
+*.pyc
+bin/
+obj/

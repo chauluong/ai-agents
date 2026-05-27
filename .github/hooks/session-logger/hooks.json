@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionEnd": [
+      {
+        "type": "command",
+        "bash": "powershell -NoProfile -File tools/hooks/session-logger.ps1",
+        "cwd": ".",
+        "env": {
+          "LOG_DIR": "logs/sessions"
+        },
+        "timeoutSec": 15
+      }
+    ]
+  }
+}
