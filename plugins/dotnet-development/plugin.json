@@ -1,0 +1,14 @@
+{
+  "name": "dotnet-development",
+  "version": "0.1.0",
+  "description": "Microsoft .NET and C# skills for AI coding agents — scaffolding, building, testing, Web API, EF Core, diagnostics, framework upgrades, AI integration, and Blazor.",
+  "license": "MIT",
+  "repository": "github.com/chauluong/ai-agents",
+  "tags": ["dotnet", "csharp", "aspnet", "blazor", "ef-core", "testing", "ai"],
+  "skills": ["../../skills/"],
+  "agents": ["../../.github/agents/dotnet-architect.agent.md", "../../.claude/agents/dotnet.md"],
+  "instructions": [
+    "../../instructions/dotnet.instructions.md",
+    "../../instructions/dotnet-testing.instructions.md"
+  ]
+}
